@@ -7,15 +7,17 @@ import org.openqa.selenium.WebDriver;
 import pages.Homepage;
 import utility.Hooks.ExecutionHook;
 
-public class firstSteps {
+
+public class FirstSteps {
+    private WebDriver driver= ExecutionHook.browserDriver.getDriver();
 
     private Homepage homepage;
-    private WebDriver driver = ExecutionHook.driver;
 
     @Given("the user is on the google page")
     public void the_user_is_on_the_login_page() {
        driver.get("http://www.google.com");
         homepage = new Homepage(driver);
+        homepage.clickSelectAll();
     }
     @Given("user entered text")
     public void user_enters_username() {
@@ -23,11 +25,13 @@ public class firstSteps {
     }
     @Given("user entered {string}")
     public void user_enters_username(String str) {
+
+        System.out.println(str);
         homepage.enterText(str);
     }
     @When("user click submit")
     public void user_click_submit() {
-        homepage.submit();
+       // homepage.submit();
     }
     @Then("search results are displayed")
     public void login_should_be_successful() {

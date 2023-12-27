@@ -13,9 +13,7 @@ Feature: Search functionality
     Given user entered "<message>"
     When user click submit
     Then search results are displayed
-
-
     Examples:
-    | message |
-    |    Ivana   |
-    |   Luv    |
+      | message |
+      |    Ivana   |
+      |   Luv    |

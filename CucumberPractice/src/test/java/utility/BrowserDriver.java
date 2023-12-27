@@ -2,20 +2,23 @@ package utility;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BrowserDriver {
 
-    public static WebDriver driver;
+    private WebDriver driver;
 
     public BrowserDriver(){
-        this.driver=driver;
-        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/test/resources/drivers/ChromeDriver.exe");
-        this.driver = new ChromeDriver();
-        driver.get("http://www.google.com");
+        System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/CucumberPractice/src/test/resources/drivers/chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+
     }
 
-    public void close(){
-        this.driver.close();
+    public WebDriver getDriver() {
+        return driver;
     }
+
 
 }
